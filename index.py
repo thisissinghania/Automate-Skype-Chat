@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 openai.api_key = os.getenv('CHAT_GPT_KEY')
+username = os.getenv('USERNAME')
+password = os.getenv('PASSWORD')
 print(openai.api_key)
 
 class SkypePing(SkypeEventLoop):
@@ -27,5 +29,5 @@ class SkypePing(SkypeEventLoop):
             )['choices'][0]['message']['content']
             event.msg.chat.sendMsg(response)
 
-sk = SkypePing('pawansinghania001@gmail.com','Mybestemailid@001')
+sk = SkypePing(username,password)
 sk.loop()
